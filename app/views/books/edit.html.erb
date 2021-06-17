@@ -1,7 +1,7 @@
 <div class="mx-auto" style="width: 300px;">
   <div class="col-xs-offset-3 col-xs-6">
       <h1>Editing Book</h1>
-      <% if @book.errors.any? %>
+    <% if @book.errors.any? %>
   <%= @book.errors.count %>件のerrorが発生しました
   <% @book.errors.full_messages.each do |message| %>
     <%= message %>
