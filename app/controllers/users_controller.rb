@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
  def show
-    @user = @user.find(params[:id])
+    @user = User.find(params[:id])
     @book = Book.new
     @books = Book.where(user_id: @user.id)
  end
@@ -13,7 +13,7 @@ class UsersController < ApplicationController
   end
 
   def edit
-    @user = @user.find(params[:id])
+    @user = User.find(params[:id])
     if @user == current_user
         render "edit"
     else
@@ -31,9 +31,18 @@ class UsersController < ApplicationController
     end
   end
 
+  def create
+    @book = Book.new(book_params)
+    # @book.user_id = current_user.id
+    @book.save
+    redirect_to books_path
+  end
+
+
+
   private
   def user_params
-    params.require(:user).permit(:name, :image, :introduction)
+    params.require(:user).permit(:name, :profile_image, :introduction)
   end
 
 end

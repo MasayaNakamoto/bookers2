@@ -1,2 +1,28 @@
-<p>info</p>
-<%= attachment_image_tag user, :image, :fill, 60, 60, fallback: "no_image.jpg" %>
+    <h2>User info</h2>
+    <%#= attachment_image_tag user, :profile_image_id, :fill, 50, 50, fallback: "no_image.jpg"%>
+    <%= attachment_image_tag user, :profile_image_id, size: "100x100", fallback: "no_image.jpg"%>
+    <!--プロフ画像-->
+    <table class="table table-hover table-inverse">
+      <thead>
+    <!--<tr>-->
+    <!-- <th>Name</th>-->
+    <!--<th><</th>-->
+    <!--</tr>-->
+    <!--<tr>-->
+    <!--<th>Introduction</th>-->
+    <!--</tr>-->
+      <tbody>
+        <tr>
+
+     <th>Name</th>
+    <th><%= user.name %></th>
+    </tr>
+    <tr>
+    <th>Introduction</th>
+    <th><%= user.introduction %></th>
+    </tr>
+    </tbody></table>
+      <div class="row">
+        <!--edit画面-->
+        <%= link_to "", edit_user_path(user), class: "btn btn-outline-secondary btn-block fas fa-user-cog edit_user" %>
+      </div>
