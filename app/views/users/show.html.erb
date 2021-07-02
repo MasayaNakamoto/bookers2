@@ -39,8 +39,8 @@
                     </p>
                     <% else %>
                     <p>
-                      <%= link_to book_favorites_path(@book), method: :post do %>
-                        ♡<%= @book.favorites.count %> いいね
+                      <%= link_to book_favorites_path(@bookfind), method: :post do %>
+                        ♡<%= @bookfind.favorites.count %> いいね
                       <% end %>
                     </p>
                   <% end %>
