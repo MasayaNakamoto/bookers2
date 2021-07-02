@@ -11,6 +11,7 @@ class BooksController < ApplicationController
     @user = @book.user
     # @users = User.all
     @newbook = Book.new
+    @book_comment = BookComment.new
   end
 
   def new
