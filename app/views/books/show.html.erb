@@ -20,6 +20,20 @@
               <% end %>
             </tr>
           </table>
+                <% if @book.favorited_by?(current_user) %>
+                    <p>
+                      <%= link_to book_favorites_path(@book), method: :delete do %>
+                        ♥<%= @book.favorites.count %> いいね
+                      <% end %>
+                    </p>
+                    <% else %>
+                    <p>
+                      <%= link_to book_favorites_path(@book), method: :post do %>
+                        ♡<%= @book.favorites.count %> いいね
+                      <% end %>
+                    </p>
+                  <% end %>
+
               <div class="comments">
                 <p>コメント件数：<%= @book.book_comments.count %></p>
                 <% @book.book_comments.each do |book_comment| %>
