@@ -39,6 +39,11 @@ class UsersController < ApplicationController
     redirect_to books_path
   end
 
+  def search
+    @user = User.search(params[:keyword])
+    @book = Book.search(params[:keyword])
+  end
+
 
 
   private

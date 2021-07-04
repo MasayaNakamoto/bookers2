@@ -44,6 +44,16 @@ class User < ApplicationRecord
 # end
  # ここまでいらんやつかも
 
+ def self.search(search)
+    if search
+      Book.all
+    #   User.where('name LIKE(?)', 'introduction LIKE(?)', "%#{search}%")
+    #   Book.where('title LIKE(?)', 'body LIKE(?)', "%#{search}%")
+    else
+      User.all
+    end
+ end
+
   attachment :profile_image
 
   validates :name, presence: true, length: { minimum: 2,  maximum: 20 }, uniqueness: true
