@@ -40,7 +40,7 @@ class UsersController < ApplicationController
   end
 
   def search
-    @user = User.search(params[:keyword])
+    @users = User.search(params[:keyword])
     @book = Book.search(params[:keyword])
   end
 

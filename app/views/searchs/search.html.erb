@@ -1,0 +1,10 @@
+<%= render partial: "form" %>
+<div class="contents row">
+
+  <% if @users != nil%>
+    <%= render partial: "users/users", locals: { users: @users } %>
+  <% elsif @books != nil %>
+    <%= render partial: "books/books", locals: { books: @books } %>
+  <% end %>
+
+</div>

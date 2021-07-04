@@ -46,8 +46,7 @@ class User < ApplicationRecord
 
  def self.search(search)
     if search
-      Book.all
-    #   User.where('name LIKE(?)', 'introduction LIKE(?)', "%#{search}%")
+      User.where('name LIKE(?)', "%#{search}%")
     #   Book.where('title LIKE(?)', 'body LIKE(?)', "%#{search}%")
     else
       User.all
