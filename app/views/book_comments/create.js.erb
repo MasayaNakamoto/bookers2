@@ -1,4 +1,3 @@
-$('#comments_<%= @book.id %>').html("<%= j(render partial: 'book_comments/comments', locals: {book: @book, user: @user, book_comment: @book_comment }) %>");
+$('#comments_<%= @book.id %>').html("<%= j(render partial: 'book_comments/comments', locals: {book: @book, user: @book.user, book_comment: @book_comment, comments: @comment.book.book_comments }) %>");
 $("textarea").val('')
-<!--コメントを投稿したら空の投稿画面になるよう設定-->
-alert(aaaa);
+

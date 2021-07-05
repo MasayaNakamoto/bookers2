@@ -24,8 +24,8 @@
                  <%= render partial: "favorites/favorites", locals: { book: @book } %>
             </p>
 
-              <div class="comments_<%= @book.id %>">
-                <%= render partial: "book_comments/comments", locals: { book: @book, user: @user, book_comment: @book_comment } %>
+              <div id="comments_<%= @book.id %>">
+                <%= render partial: "book_comments/comments", locals: { book: @book, user: @user, book_comment: @book_comment, comments: @book.book_comments} %>
               </div>
         </div>
     </div>
