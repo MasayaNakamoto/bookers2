@@ -1,1 +1,4 @@
-$('#favorite_botton_<%= @book.id %>').html("<%= j(render partial: 'favorites/favorites', locals: {book: @book}) %>");
+$('#comments_<%= @book.id %>').html("<%= j(render partial: 'book_comments/comments', locals: {book: @book, user: @user, book_comment: @book_comment }) %>");
+$("textarea").val('')
+<!--コメントを投稿したら空の投稿画面になるよう設定-->
+alert(aaaa);
