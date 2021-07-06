@@ -12,6 +12,7 @@ class BooksController < ApplicationController
     # @users = User.all
     @newbook = Book.new
     @book_comment = BookComment.new
+    @comments = @book.book_comments
   end
 
   def new

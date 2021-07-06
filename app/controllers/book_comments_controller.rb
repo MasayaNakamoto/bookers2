@@ -3,7 +3,7 @@ class BookCommentsController < ApplicationController
     @book = Book .find(params[:book_id])
     @comment = current_user.book_comments.new(book_comment_params)
     @comment.book_id = @book.id
-    @book_comment = current_user.book_comments.new
+    @book_comment = BookComment.new
     # binding.pry
 
     @comment.save
@@ -13,6 +13,8 @@ class BookCommentsController < ApplicationController
 
   def destroy
     @book = Book .find(params[:book_id])
+    @comments = BookComment.where(book_id: @book.id)
+    @book_comment = BookComment.new
     BookComment.find_by(id: params[:id], book_id: params[:book_id]).destroy
     # redirect_to book_path(params[:book_id])
   end
