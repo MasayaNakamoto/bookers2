@@ -25,7 +25,7 @@
             </p>
 
               <div id="comments_<%= @book.id %>">
-              <%binding.pry%>
+
                 <%= render partial: "book_comments/comments", locals: { book: @book, user: @user, book_comment: @book_comment, comments: @comments} %>
               </div>
         </div>

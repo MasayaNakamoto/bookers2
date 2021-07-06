@@ -1,1 +1,3 @@
 $('#comments_<%= @book.id %>').html("<%= j(render partial: 'book_comments/comments', locals: {book: @book, user: @book.user, book_comment: @book_comment,comments:@comments}) %>");
+<!--部分テンプレートの変数は全てここに入れる-->
+<!--なぜなら非同期通信でこっちのコントローラとViewだけで動いてるから-->
