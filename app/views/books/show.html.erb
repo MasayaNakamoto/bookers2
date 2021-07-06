@@ -20,12 +20,11 @@
               <% end %>
             </tr>
           </table>
-                <p id ="favorite_botton_<%= @book.id %>">
+            <div id ="favorite_botton_<%= @book.id %>">
                  <%= render partial: "favorites/favorites", locals: { book: @book } %>
-            </p>
+            </div>
 
               <div id="comments_<%= @book.id %>">
-
                 <%= render partial: "book_comments/comments", locals: { book: @book, user: @user, book_comment: @book_comment, comments: @comments} %>
               </div>
         </div>

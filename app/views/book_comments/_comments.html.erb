@@ -1,20 +1,19 @@
-<p>コメント件数：<%= comments.count %></p>
-  <% comments.each do |book_comment| %>
-  <%#= image_tag('sample-author1.jpg') %>
-  <%= attachment_image_tag user, :profile_image_id, size: "50x50", fallback: "no_image.jpg"%>
-  <%= user.name %>
-  <%= book_comment.created_at.strftime('%Y/%m/%d') %>
-  <%= book_comment.comment %>
-  <% if book_comment.user == current_user %>
-  <div class="comment-delete">
-    <%= link_to "Destroy", book_book_comment_path(book_comment.book, book_comment), method: :delete, remote: true, class:"btn btn-danger" %>
-  </div>
-   <% end %>
-  <% end %>
-  <div class="new-comment">
-   <%= form_with(model:[book, book_comment], remote: true) do |f| %>
-   <%= f.text_area :comment, rows:'5',placeholder: "コメントをここに" %>
-   <%= f.submit "送信する" %>
-  <% end %>
-
+  <p>コメント件数：<%= comments.count %></p>
+    <% comments.each do |book_comment| %>
+    <%#= image_tag('sample-author1.jpg') %>
+    <%= attachment_image_tag user, :profile_image_id, size: "50x50", fallback: "no_image.jpg"%>
+    <%= user.name %>
+    <%= book_comment.created_at.strftime('%Y/%m/%d') %>
+    <p>コメント:<%= book_comment.comment %> </p>
+    <% if book_comment.user == current_user %>
+    <div class="comment-delete">
+      <%= link_to "Destroy", book_book_comment_path(book_comment.book, book_comment), method: :delete, remote: true, class:"btn btn-danger" %>
+    </div>
+     <% end %>
+    <% end %>
+    <div class="new-comment">
+     <%= form_with(model:[book, book_comment], remote: true) do |f| %>
+     <%= f.text_area :comment, rows:'5',placeholder: "コメントをここに" %>
+     <%= f.submit "送信する" %>
+    <% end %>
 <%#= render partial: "book_comments/comments", locals: { book: @book, user: @user, book_comment: @book_comment } %>
