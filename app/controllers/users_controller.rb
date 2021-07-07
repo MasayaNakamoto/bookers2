@@ -2,7 +2,7 @@ class UsersController < ApplicationController
  def show
     @user = User.find(params[:id])
     @book = Book.new
-    @books = Book.where(user_id: @user.id)
+    @books = Book.includes(:favorited_users).sort {|a,b| b.favorited_users.size <=> a.favorited_users.size}
     @bookfind = Book.find(params[:id])
  end
 
