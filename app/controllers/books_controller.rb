@@ -1,10 +1,16 @@
 class BooksController < ApplicationController
 
   def index
-    @to  = Time.current.at_end_of_day
-    @from  = (@to - 6.day).at_beginning_of_day
-    # @books = Book.includes(:favorited_users).sort {|a,b| b.favorited_users.where(created_at: @from...@to).size <=> a.favorited_users.where(created_at: @from...@to).size }
-    @books = Book.includes(:favorited_users).sort {|a,b| b.favorited_users.size <=> a.favorited_users.size}
+    # 回答にあった記載↓
+    to  = Time.current.at_end_of_day
+    from  = (to - 6.day).at_beginning_of_day
+    # @books = Book.includes(:favorited_users).sort {|a,b| b.favorited_users.where(created_at: from...to).size <=> a.favorited_users.where(created_at: from...to).size }
+    @books = Book.includes(:favorited_users).sort {|a,b| b.favorited_users.where(created_at: from...to).size <=> a.favorited_users.where(created_at: from...to).size}
+    # これやと並び替えはできる
+    # ってことはここに「過去１週間のデータで」って入れられたらうまくいく？？
+
+
+
     @user = current_user
     @book = Book.new
     # @ranks = Book.includes(:favorited_users).sort {|a,b| b.favorited_users.size <=> a.favorited_users.size}
