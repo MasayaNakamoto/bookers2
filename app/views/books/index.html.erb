@@ -18,6 +18,7 @@
            <th>Opinion</th>
            <th></th>
            <th></th>
+           <th></th>
            <!--<th colspan="3"></th>-->
          </tr>
        </thead>
@@ -35,6 +36,11 @@
                  <%= render partial: "favorites/favorites", locals: { book: book } %>
             </td>
             <td><%= link_to "コメント数: #{book.book_comments.count}", book_path(book.id) %></td>
+            <td>
+             <% @books.each do |t| %>
+               <%= t.impressions_count %>
+              <% end %>
+            </td>
           </tr>
           <% end %>
            </tbody>

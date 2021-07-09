@@ -24,6 +24,7 @@ class BooksController < ApplicationController
     @newbook = Book.new
     @book_comment = BookComment.new
     @comments = @book.book_comments
+    # impressionist(@book, nil, unique: [:ip_address])
   end
 
   def new
@@ -72,6 +73,6 @@ class BooksController < ApplicationController
   private
 
   def book_params
-    params.require(:book).permit(:title, :body)
+    params.require(:book).permit(:title, :body,:impressions_count)
   end
 end
