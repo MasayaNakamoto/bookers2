@@ -9,7 +9,7 @@ class BooksController < ApplicationController
     # これやと並び替えはできる
     # ってことはここに「過去１週間のデータで」って入れられたらうまくいく？？
 
-
+# 余裕できたら応用課題の質問する
 
     @user = current_user
     @book = Book.new
