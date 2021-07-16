@@ -19,6 +19,7 @@ Rails.application.routes.draw do
         get 'followings' => 'relationships#followings', as: 'followings'
         get 'followers' => 'relationships#followers', as: 'followers'
         # get 'search' => 'users#search'
+        # チーム開発で参考にしていく
     end
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
